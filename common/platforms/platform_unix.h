@@ -38,13 +38,18 @@
 #include <math.h>
 #include <netdb.h>
 #include <netinet/in.h>
+#ifndef UEFI_C_SOURCE
 #include <pthread.h>
+#endif
 #include <signal.h>
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef UEFI_C_SOURCE
+#include <sys/inttypes.h>
+#endif
 #include <sys/param.h>
 #include <sys/socket.h>
 #include <sys/select.h>

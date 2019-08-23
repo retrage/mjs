@@ -72,9 +72,10 @@ typedef unsigned long uintptr_t;
 #define CS_DEFINE_DIRENT
 #include <windows.h>
 #else
-#if defined(__unix__) || defined(__APPLE__)
+#if !defined(UEFI_C_SOURCE) && (defined(__unix__) || defined(__APPLE__))
 #include <dlfcn.h>
 #endif
+
 #endif
 
 /*

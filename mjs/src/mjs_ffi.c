@@ -1167,7 +1167,7 @@ void *dlsym(void *handle, const char *name) {
   }
   return sym;
 }
-#elif !defined(__unix__) && !defined(__APPLE__)
+#elif defined(UEFI_C_SOURCE) || (!defined(__unix__) && !defined(__APPLE__))
 void *dlsym(void *handle, const char *name) {
   (void) handle;
   (void) name;

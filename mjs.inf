@@ -1,0 +1,54 @@
+[Defines]
+  INF_VERSION       = 0x00010006
+  BASE_NAME         = mjs
+  FILE_GUID         = c5317675-af2d-4e31-ba58-1d67d6543b54
+  MODULE_TYPE       = UEFI_APPLICATION
+  VERSION_STRING    = 0.1 
+  ENTRY_POINT       = ShellCEntryLib
+
+[Sources]
+  common/cs_dbg.c
+  common/cs_dirent.c
+  common/cs_file.c
+  common/cs_time.c
+  common/cs_varint.c
+  common/mbuf.c
+  common/mg_str.c
+  common/str_util.c
+  common/test_util.c
+  frozen/frozen.c
+  mjs/src/ffi/ffi.c
+  mjs/src/mjs_array.c
+  mjs/src/mjs_bcode.c
+  mjs/src/mjs_builtin.c
+  mjs/src/mjs_conversion.c
+  mjs/src/mjs_core.c
+  mjs/src/mjs_dataview.c
+  mjs/src/mjs_exec.c
+  mjs/src/mjs_ffi.c
+  mjs/src/mjs_gc.c
+  mjs/src/mjs_json.c
+  mjs/src/mjs_main.c
+  mjs/src/mjs_object.c
+  mjs/src/mjs_parser.c
+  mjs/src/mjs_primitive.c
+  mjs/src/mjs_string.c
+  mjs/src/mjs_tok.c
+  mjs/src/mjs_util.c
+
+[Packages]
+  StdLib/StdLib.dec
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+
+[LibraryClasses]
+  LibC
+  LibStdio
+  LibStdLib
+  LibString
+  LibMath
+  UefiLib
+  ShellCEntryLib
+
+[BuildOptions]
+  GCC:*_*_*_CC_FLAGS = -std=c99 -I$(WORKSPACE)/AppPkg/Applications/mjs/mjs -I$(WORKSPACE)/AppPkg/Applications/mjs/mjs/frozen -I$(WORKSPACE)/AppPkg/Applications/mjs/mjs/src -DMJS_MAIN -DMJS_EXPOSE_PRIVATE -DCD_ENABLE_STDIO -DMJS_ENABLE_DEBUG -DMJS_MODULE_LINES

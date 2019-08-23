@@ -54,6 +54,9 @@ typedef unsigned _int64 uint64_t;
 #ifndef __STDC_FORMAT_MACROS
 #define __STDC_FORMAT_MACROS
 #endif
+#ifdef UEFI_C_SOURCE
+#include <sys/inttypes.h>
+#endif /* UEFI_C_SOURCE */
 #include <inttypes.h>
 #endif /* _WIN32 */
 
