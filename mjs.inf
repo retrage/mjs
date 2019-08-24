@@ -43,9 +43,6 @@
 
 [LibraryClasses]
   LibC
-  LibStdio
-  LibStdLib
-  LibString
   LibMath
   UefiLib
   ShellCEntryLib
